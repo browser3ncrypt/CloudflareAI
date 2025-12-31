@@ -28,7 +28,7 @@
       "persist": true
     }
   }
-}
+},
   "migrations": [
     {
       "tag": "v1",
