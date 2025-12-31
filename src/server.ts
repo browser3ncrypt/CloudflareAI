@@ -18,10 +18,16 @@ import { processToolCalls, cleanupMessages } from "./utils";
 import { tools, executions } from "./tools";
 // import { env } from "cloudflare:workers";
 
-const model = openai("gpt-4o-2024-11-20");
+//const model = openai("gpt-4o-2024-11-20");
+const response = await openai.chat.completions.create({
+  model: "gpt-4o-2024-11-20",  
+// or "gpt-4o-mini" for cheaper/faster
+  messages: yourMessageArray,
+  stream: true, // if you want streaming responses
+});
 // Cloudflare AI Gateway
-// const openai = createOpenAI({
-//   apiKey: env.OPENAI_API_KEY,
+const openai = createOpenAI({
+apiKey: env.OPENAI_API_KEY,
 //   baseURL: env.GATEWAY_BASE_URL,
 // });
 
